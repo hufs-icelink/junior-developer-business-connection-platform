@@ -1,2 +1,41 @@
-# junior-developer-business-connection-platform
-청년 커뮤니티 플랫폼 만들기
+
+
+<div align=center> <h2> junior-developer-business-connection-platform </h2></div>
+
+
+
+<br>
+<br>
+
+<div align = center><img width="350" alt="image" src="https://saintlouischessclub.org/sites/default/files/2022__Junior_color2.png">
+ </div>
+ <br>
+
+ <div align = center> <h4> Are you ready to feel the connected experience of floating in the sky? </h4> </div>
+ 
+
+
+
+
+
+
+<br>
+
+<div align = center> <h4> 주니어 개발자와 스타트업을 이어주기 위해 시작했습니다. <h4></div>
+
+<br>
+
+<div align = center>  주니어 개발자에게는 보다 혁신적인 포토폴리오 제공 & 스타트업에게는 필요한 인재를 선택할 수 있는 멋진 기회가 제공될 것입니다. </div>
+<br>
+<br>
+
+
+
+
+<br>
+<br>
+
+<div align = center> <h5> hufs_ice   </h5>  </div>
+
+
+
