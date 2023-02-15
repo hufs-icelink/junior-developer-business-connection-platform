@@ -7,8 +7,10 @@
 <br>
 <br>
 
-<div align = center><img width="350" alt="image" src="https://saintlouischessclub.org/sites/default/files/2022__Junior_color2.png">
+<div align = center><img width="350" alt="image" src="https://dy4w30ff1hry4.cloudfront.net/img/junior-logo@2x.png">
  </div>
+ 
+<br>
  <br>
 
  <div align = center> <h4> Are you ready to feel the connected experience of floating in the sky? </h4> </div>
