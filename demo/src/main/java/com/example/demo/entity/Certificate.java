@@ -16,7 +16,7 @@ public class Certificate {
     private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private MemberEntity memberEntity;
+    private User user;
     @Column(nullable = false, length = 50)
     private String cer_name;
 }

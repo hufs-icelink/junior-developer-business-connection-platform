@@ -1,10 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Board;
-import com.example.demo.entity.MemberEntity;
 import com.example.demo.service.BoardService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +24,5 @@ public class BoardController {
 
         return "index";
     }
-
 
 }

@@ -15,7 +15,7 @@ public class Ranking {
     @Id
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private MemberEntity memberEntity;
+    private User user;
     @ColumnDefault("0")
     private Integer score;
     @Column(nullable = false)

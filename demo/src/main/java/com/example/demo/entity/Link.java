@@ -15,7 +15,7 @@ public class Link {
     private Integer id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private MemberEntity memberEntity;
+    private User user;
     @Column(nullable = false, length = 100)
     private String plat_id;
     @Column(nullable = false, length = 200)

@@ -15,7 +15,7 @@ public class User_BoardPart {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private MemberEntity memberEntity;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "Bord_part_id", nullable = false)

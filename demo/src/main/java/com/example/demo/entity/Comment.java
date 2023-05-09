@@ -21,7 +21,7 @@ public class Comment {
     private Board board;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private MemberEntity memberEntity;
+    private User user;
     @Lob
     @Column(nullable = false)
     private String content;

@@ -1,14 +1,16 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.MemberEntity;
+import com.example.demo.entity.User;
 import com.example.demo.model.RoleType;
 import com.example.demo.repository.MemberRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -18,7 +20,7 @@ public class MemberService{
     private MemberRepository memberRepository;
 
 
-    public void write(MemberEntity memberEntity, MultipartFile file) throws Exception
+    public void write(User user, MultipartFile file) throws Exception
     {
         String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
         //저장할 경로 지정
@@ -33,18 +35,18 @@ public class MemberService{
 
         file.transferTo(saveFile); //MultipartFile의 file데이터를 seveFile 객체에 복사.
 
-        memberEntity.setPictureName(fileName);
-        memberEntity.setPicturePath("/files/" + fileName);
-        memberEntity.setRole(RoleType.valueOf("Member"));
+        user.setPictureName(fileName);
+        user.setPicturePath("/files/" + fileName);
+        user.setRole(RoleType.valueOf("Member"));
 
-        memberRepository.save(memberEntity);
+        memberRepository.save(user);
 
     }
 
     @Transactional
-    public MemberEntity login(MemberEntity member) {
+    public User login(User member) {
 
-        MemberEntity m1 = memberRepository.findByIdAndUserPassword(member.getId(), member.getUserPassword()).orElseGet(()-> {
+        User m1 = memberRepository.findByIdAndUserPassword(member.getId(), member.getUserPassword()).orElseGet(()-> {
             return null;
         });
 
@@ -53,8 +55,11 @@ public class MemberService{
         return m1;
     }
 
+    @Transactional
+    public List<User> getMemberListLimit10 () {
+        List<User> memberList = memberRepository.findAll(Sort.by(Sort.Direction.DESC, "points"));
+        memberList = memberList.subList(0, (memberList.size() >= 10) ? 10 : memberList.size());
 
-
-
-
+        return memberList;
+    }
 }

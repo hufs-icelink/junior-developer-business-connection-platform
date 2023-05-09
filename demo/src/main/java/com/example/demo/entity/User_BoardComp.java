@@ -15,7 +15,7 @@ public class User_BoardComp {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private MemberEntity memberEntity;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "Bord_comp_id", nullable = false)

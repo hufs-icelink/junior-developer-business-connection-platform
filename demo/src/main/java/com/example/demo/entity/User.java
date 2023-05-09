@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Entity //entity 정의 --> 스프링으로 db 테일블 생성
 @Table(name = "User")
-public class MemberEntity {
+public class User {
     @Id // pk 지정
     private String id;
     @Column(nullable = false, length = 100)
@@ -39,12 +39,15 @@ public class MemberEntity {
     @Column
     private Integer pay;
 
+    @Column
+    private Integer points;
+
     @Column(length = 200)
-    private String skill1;
+    private String firstSkill;
     @Column(length = 200)
-    private String skill2;
+    private String secondSkill;
     @Column(length = 200)
-    private String skill3;
+    private String thirdSkill;
     @Column
     private Integer univerGrade;
     @Column(nullable = false, length = 500)
@@ -54,26 +57,23 @@ public class MemberEntity {
     @Column(nullable = false)
     @Lob
     private String shortRes;
-    @OneToMany(mappedBy = "memberEntity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "id", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Board> boardList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "memberEntity")
+    @OneToMany(mappedBy = "id")
     private List<User_BoardComp> boardCompList = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "memberEntity")
+    @OneToMany(mappedBy = "id")
     private List<User_BoardPart> boardPartList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "memberEntity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Career> careerList = new ArrayList<>();
-    @OneToMany(mappedBy = "memberEntity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Certificate> certificateList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "memberEntity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comment> commentList = new ArrayList<>();
-    @OneToMany(mappedBy = "memberEntity", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Link> linkList = new ArrayList<>();
-
-
-
 
 }

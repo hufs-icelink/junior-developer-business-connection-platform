@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Board;
-import com.example.demo.entity.MemberEntity;
+import com.example.demo.entity.User;
 import com.example.demo.repository.BoardRepository;
 import com.example.demo.repository.MemberRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,11 +24,11 @@ public class BoardService{
 
         HttpSession session = request.getSession();
 
-        MemberEntity m1 = memberRepository.findById((String)session.getAttribute("id")).orElseGet(()-> {
+        User m1 = memberRepository.findById((String)session.getAttribute("id")).orElseGet(()-> {
             return null;
         });
 
-        board.setMemberEntity(m1);
+        board.setUser(m1);
         board.setDate(LocalDateTime.now());
 
         boardRepository.save(board);
