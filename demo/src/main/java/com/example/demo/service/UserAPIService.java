@@ -39,6 +39,14 @@ public class UserAPIService {
         }
 
     }
+
+    public User login(User user) {
+        return userAPIRepository.findById(user.getId()).orElseGet(()->{
+            return null;
+        });
+
+
+    }
 }
 
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class BoardAPIController {
     @Autowired
@@ -18,8 +19,8 @@ public class BoardAPIController {
     private BoardAPIService boardAPIService;
 
     @PostMapping("/board/boardWrite")
-    Board boardSave(@RequestBody Board board){
-        return boardAPIService.write(board);
+    public void boardSave(@RequestBody Board board){
+        boardAPIService.write(board);
     }
 
     @GetMapping("/boards")

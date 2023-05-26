@@ -29,6 +29,7 @@ public class Board {
     @Column(nullable = false, length = 200)
     private String title;
     @Lob
+    @Column
     private String content;
     @Column(length = 200)
     private String link;

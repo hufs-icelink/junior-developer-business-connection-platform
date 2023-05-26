@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserAPIRepository;
 import com.example.demo.service.UserAPIService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class UserAPIController {
 
@@ -27,5 +30,20 @@ public class UserAPIController {
     @GetMapping("/users")
     List<User> allUsers(){
         return userAPIRepository.findAll();
+    }
+
+    @PostMapping("/user/login")
+    public void userLogin(@RequestBody User user, HttpServletRequest request) {
+
+        User user1 = userAPIService.login(user);
+
+        if(user1 != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("id", user1.getId());
+            session.setAttribute("name", user1.getName());
+
+            session.setMaxInactiveInterval(30 * 60 * 60);
+        }
+
     }
 }

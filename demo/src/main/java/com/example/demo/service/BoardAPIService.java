@@ -1,7 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Board;
+import com.example.demo.entity.User;
+import com.example.demo.repository.BoardAPIRepositoty;
 import com.example.demo.repository.BoardRepository;
+import com.example.demo.repository.UserAPIRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +14,25 @@ import java.time.LocalDateTime;
 public class BoardAPIService {
 
     @Autowired
-    private BoardRepository boardRepository;
+    private BoardAPIRepositoty boardAPIRepositoty;
 
-    public Board write(Board board){
+    @Autowired
+    private UserAPIRepository userAPIRepository;
+
+    public void write(Board board){
         board.setDate(LocalDateTime.now());
-        board.setUserName(board.getUser().getName());
-        return boardRepository.save(board);
+        User user = userAPIRepository.findByName(board.getUserName()).orElseGet(()-> {
+            return null;
+        });
+
+        if(user == null) {
+            System.out.println("에러");
+        }
+        else{
+            board.setUser(user);
+        }
+
+        boardAPIRepositoty.save(board);
+
     }
 }
