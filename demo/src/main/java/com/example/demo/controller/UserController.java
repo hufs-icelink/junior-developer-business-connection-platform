@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 
@@ -22,8 +23,8 @@ public class UserController {
 
 
     @PostMapping("/user/save") //"/member/save"경로로 post방식으로 보내진 데이타를 받는 controller메소드
-    public String userSave(User user) { //파라미터 하나로 회원정보 모든 데이터를 받을수 있다
-        userService.write(user);
+    public String userSave(User user, MultipartFile file) throws Exception { //파라미터 하나로 회원정보 모든 데이터를 받을수 있다
+        userService.write(user, file);
 
         return "index";
     }
