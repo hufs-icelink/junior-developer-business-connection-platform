@@ -18,7 +18,7 @@ public class CertificateAPIService {
     private UserAPIRepository userAPIRepository;
 
     public void write(Certificate certificate) {
-        User user = userAPIRepository.findByName(certificate.getUserName()).orElseGet(()-> {
+        User user = userAPIRepository.findById(certificate.getUserId()).orElseGet(()-> {
             return null;
         });
 
@@ -30,5 +30,17 @@ public class CertificateAPIService {
         }
 
         certificateAPIRepository.save(certificate);
+    }
+
+    public Certificate reWrite(Certificate newCertificate, Integer id) {
+        return certificateAPIRepository.findById(id)
+                .map(certificate -> {
+                    certificate.setCerName(newCertificate.getCerName());
+                    return certificateAPIRepository.save(certificate);
+                })
+                .orElseGet(() -> {
+                    newCertificate.setId(id);
+                    return certificateAPIRepository.save(newCertificate);
+                });
     }
 }

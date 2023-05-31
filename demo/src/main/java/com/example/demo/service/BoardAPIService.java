@@ -21,15 +21,25 @@ public class BoardAPIService {
 
     public void write(Board board){
         board.setDate(LocalDateTime.now());
-        User user = userAPIRepository.findByName(board.getUserName()).orElseGet(()-> {
+        User user = userAPIRepository.findById(board.getUserId()).orElseGet(()-> {
             return null;
         });
+
 
         if(user == null) {
             System.out.println("에러");
         }
         else{
+            Integer score = user.getScore();
+            Integer score1;
+            if (score == null){
+                score1 = 1;
+            } else {
+                score1 = score + 1;
+            }
+            user.setScore(score1);
             board.setUser(user);
+            board.setUserName(user.getName());
         }
 
         boardAPIRepositoty.save(board);
@@ -62,4 +72,5 @@ public class BoardAPIService {
                     return boardAPIRepositoty.save(newBoard);
                 });
     }
+
 }

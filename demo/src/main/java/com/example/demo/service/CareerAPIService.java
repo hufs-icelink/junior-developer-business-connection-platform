@@ -16,7 +16,7 @@ public class CareerAPIService {
     private UserAPIRepository userAPIRepository;
 
     public void write(Career career) {
-        User user = userAPIRepository.findByName(career.getUserName()).orElseGet(()-> {
+        User user = userAPIRepository.findById(career.getUserId()).orElseGet(()-> {
             return null;
         });
 
@@ -28,5 +28,17 @@ public class CareerAPIService {
         }
 
         careerAPIRepository.save(career);
+    }
+
+    public Career reWrite(Career newCareer, Integer id) {
+        return careerAPIRepository.findById(id)
+                .map(career -> {
+                    career.setContent(newCareer.getContent());
+                    return careerAPIRepository.save(career);
+                })
+                .orElseGet(() -> {
+                    newCareer.setId(id);
+                    return careerAPIRepository.save(newCareer);
+                });
     }
 }
