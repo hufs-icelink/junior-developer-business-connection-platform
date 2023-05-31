@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/api/user/login" method="post", content="application/json"> <!-- 작성된 데이터를 post방식으로 controller에 있는"/member/save"로 보낸다 -->
+    <!-- name속성: 해당 데이터를 서버로 전송할 때 번수 이름의 역할 -->
+    아이디: <input type="text" name="id"> <br>
+    비밀번호: <input type="password" name="userPassword"> <br>
+
+    <input type="submit" name="로그인"> <br> <!-- 버튼 -->
+
+</form>
+</body>
+</html>
