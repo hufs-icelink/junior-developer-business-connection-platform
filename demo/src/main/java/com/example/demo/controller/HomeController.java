@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.example.demo.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,27 +20,3 @@ public class HomeController {
 
     }
 }
-=======
-package com.example.demo.controller;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-
-@Controller  // --> html파일에서 요청이 발생하면 가장먼저 받아주는 부분
-public class HomeController {
-    // 기본페이지 요청 메서드
-    @GetMapping("/")
-    public String index(HttpServletRequest request) {
-
-        HttpSession session = request.getSession();
-        System.out.println(session.getAttribute("id"));
-        System.out.println(session.getAttribute("name"));
-        //기본주서 요청이 들어오면 리 메소드가 호출이 된다
-        return "index";      //즉, 요청이 왔을 대 "index"라는 html파일 브라우저에 띄움
-        //=> templates 폴더의 index.html을 찾아감
-
-    }
-}
->>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f
