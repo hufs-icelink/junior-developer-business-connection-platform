@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,4 +18,24 @@
 
 </form>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>boardWrite</title>
+</head>
+<body>
+<form action="/board/boardWrite" method="post"> <!-- 작성된 데이터를 post방식으로 controller에 있는"/member/save"로 보낸다 -->
+  <!-- name속성: 해당 데이터를 서버로 전송할 때 번수 이름의 역할 -->
+  작성자 아이디: <input type="text" name="user"> <br>
+    제목: <input type="text" name="title"> <br>
+    내용: <input type="text" name="content"> <br>
+    링크: <input type="text" name="link"> <br>
+    상태: <input type="text" name="boardType"> <br>
+
+  <input type="submit" name="등록"> <br> <!-- 버튼 -->
+</form>
+</body>
+>>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f
 </html>

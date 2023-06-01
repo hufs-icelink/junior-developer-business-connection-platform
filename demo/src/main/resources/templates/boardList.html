@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -24,4 +25,32 @@
   </tr>
 </table>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>BoardList</title>
+</head>
+<body>
+<h2>list.html</h2>
+<table>
+  <tr>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>내용</th>
+  </tr>
+  <tr th:each="board: ${BoardList}">
+    <td th:text="${board.title}"></td>
+    <td th:text="${board.userName}"></td>
+    <td th:text="${board.content}"></td>
+    <td>
+    </td>
+    <td>
+
+    </td>
+  </tr>
+</table>
+</body>
+>>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f
 </html>
