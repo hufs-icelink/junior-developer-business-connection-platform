@@ -16,34 +16,24 @@ configurations {
 
 repositories {
 	mavenCentral()
-<<<<<<< HEAD
 	maven { url 'https://jitpack.io' }
 
-=======
->>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-<<<<<<< HEAD
 	implementation 'org.jetbrains:annotations:23.0.0'
-=======
-    implementation 'org.jetbrains:annotations:23.0.0'
->>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f
 	implementation 'org.jetbrains:annotations:23.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-<<<<<<< HEAD
 	implementation 'org.jsoup:jsoup:1.13.1'
 	implementation 'com.github.shin285:KOMORAN:3.3.4'
 
 
-=======
->>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f
 
 }
 
