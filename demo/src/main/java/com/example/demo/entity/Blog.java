@@ -28,6 +28,6 @@ public class Blog {
     @Column(nullable = false, length = 200)
     private String link;
     @Lob
-    @Column(nullable = false)
+    @Column(nullable = false, length = 3000)
     private String content;
 }

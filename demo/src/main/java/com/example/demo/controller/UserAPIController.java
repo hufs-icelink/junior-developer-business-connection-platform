@@ -70,6 +70,11 @@ public class UserAPIController {
         return userAPIRepository.findById(id);
     }
 
+    @GetMapping("/user/blog/crawling")
+    void blogCrawling(HttpServletRequest request) throws IOException {
+        blogService.saveSummarize(request);
+    }
+
 
 
 }

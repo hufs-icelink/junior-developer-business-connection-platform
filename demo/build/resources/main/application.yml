@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+server:
+  port: 8081
+
+=======
 #server:
 #  port: 8081
 #
@@ -57,3 +62,4 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+>>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f

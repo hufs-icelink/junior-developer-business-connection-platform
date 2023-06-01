@@ -16,5 +16,13 @@
       <option name="name" value="MavenRepo" />
       <option name="url" value="https://repo.maven.apache.org/maven2/" />
     </remote-repository>
+<<<<<<< HEAD
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://jitpack.io" />
+    </remote-repository>
+=======
+>>>>>>> 7a4a0c2f8a309569f353b3d9c21ba0cde5f79e9f
   </component>
 </project>
